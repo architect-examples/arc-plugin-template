@@ -1,3 +1,6 @@
+const { join } = require('node:path')
+const { mkdirSync } = require('node:fs')
+
 function createConfig({ arc, inv }) {
   const { cwd: projectDir } = inv._project
   const { foo, bar, yeet } = Object.fromEntries(arc['my-plugin'] || [])
@@ -11,13 +14,19 @@ function createConfig({ arc, inv }) {
 }
 
 function go({ arc, inv }, production = false) {
-  const { bar, yeet } = createConfig({ arc, inv })
+  const { bar, yeet, projectDir } = createConfig({ arc, inv })
+
   // doSomethingWith(bar, yeet)
+
   // if (production) doSomethingElseWith(bar)
+
+  // an example of creating something on disk
+  mkdirSync(join(projectDir, yeet), { recursive: true })
 }
 
 function cleanup(params) {
   const { projectDir } = createConfig(params)
+
   //console.log(`cleanup: ${projectDir}`)
 }
 

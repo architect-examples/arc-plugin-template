@@ -15,7 +15,7 @@ arc-plugin-my-plugin
 
 @my-plugin
 foo some option
-bar public/style.css
+yeet the-yeet-folder
 `
 
 test('sandbox', async (t) => {
@@ -29,7 +29,7 @@ test('sandbox', async (t) => {
   })
 
   // check for expected files
-  t.ok(existsSync(join(here, 'public', 'style.css')), 'public/style.css exists')
+  t.ok(existsSync(join(here, 'the-yeet-folder')), 'the-yeet-folder folder exists')
 
   // stop sandbox
   await sandbox.end()
