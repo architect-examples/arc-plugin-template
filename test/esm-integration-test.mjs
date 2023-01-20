@@ -1,8 +1,8 @@
-const { existsSync, rmSync } = require('node:fs')
-const { join } = require('node:path')
-const test = require('tape')
-const inventory = require('@architect/inventory')
-const sandbox = require('@architect/sandbox')
+import { existsSync, rmSync } from 'node:fs'
+import { join } from 'node:path'
+import test from 'tape'
+import inventory from '@architect/inventory'
+import { start, end } from '@architect/sandbox'
 
 const here = join(process.cwd(), 'test')
 const someArc = `
@@ -23,7 +23,7 @@ test('esm sandbox integration', async (t) => {
   t.ok(inv, 'inv ok')
 
   // start sandbox with inv
-  await sandbox.start({
+  await start({
     inventory: inv,
     quiet: true,
   })
@@ -32,7 +32,7 @@ test('esm sandbox integration', async (t) => {
   t.ok(existsSync(join(here, 'the-yeet-folder')), 'the-yeet-folder folder exists')
 
   // stop sandbox
-  await sandbox.end()
+  await end()
   // cleanup
   rmSync(join(here, 'public'), { recursive: true, force: true })
   t.end()
