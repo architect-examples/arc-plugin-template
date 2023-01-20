@@ -20,10 +20,10 @@
     "test": "tape test/**-test.*js | tap-arc"
   },
   "devDependencies": {
-    "@architect/inventory": "^3.3.4",
-    "@architect/sandbox": "^5.4.1",
+    "@architect/inventory": "3.4.0-RC.0",
+    "@architect/sandbox": "5.4.2-RC.0",
     "tap-arc": "^0.3.5",
-    "tape": "^5.6.1"
+    "tape": "^5.6.3"
   },
   "keywords": [
     "architect",

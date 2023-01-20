@@ -1,7 +1,7 @@
 const test = require('tape')
-const { sandbox, deploy } = require('../src/index')
+const { sandbox, deploy } = require('../src/cjs')
 
-test('interface', (t) => {
+test('cjs interface', (t) => {
   t.equal(typeof sandbox.start, 'function', 'sandbox start is a function')
   t.equal(typeof sandbox.end, 'function', 'sandbox end is a function')
   t.equal(typeof sandbox.watcher, 'function', 'sandbox watcher is a function')
