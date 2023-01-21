@@ -11,16 +11,16 @@ test-arc-app
 
 @plugins
 arc-plugin-my-plugin
-  src ../src/index.js
+  src ../src/cjs.js # <-- note the cjs.js
 
 @my-plugin
 foo some option
 yeet the-yeet-folder
 `
 
-test('sandbox', async (t) => {
+test('cjs sandbox integration', async (t) => {
   const inv = await inventory({ rawArc: someArc, cwd: here }, null)
-  t.ok(inv, 'ok')
+  t.ok(inv, 'inv ok')
 
   // start sandbox with inv
   await sandbox.start({
